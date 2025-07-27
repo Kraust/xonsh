@@ -13,20 +13,15 @@ $GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
 xontrib load -s sh jump_to_dir pipeliner whole_word_jumping dalias;
 $PROMPT = $PROMPT.replace('{prompt_end}', '\n{prompt_end}')
 
-xontrib load fzf-widgets
-$fzf_history_binding = "c-r"  # Ctrl+R
-$fzf_ssh_binding = "c-s"      # Ctrl+S
-$fzf_file_binding = "c-t"      # Ctrl+T
-$fzf_dir_binding = "c-g"      # Ctrl+G
-
-
-$fzf_find_command = "fd"
-$fzf_find_dirs_command = "fd -t d"
-
+from xonsh.built_ins import XSH
+xontrib load fzf-completions
+XSH.env['fzf_history_binding'] = "c-r"  # Ctrl+R
+XSH.env['fzf_ssh_binding'] = "c-s"  # Ctrl+S
+XSH.env['fzf_file_binding'] = "c-t"  # Ctrl+T
+XSH.env['fzf_dir_binding'] = "c-g"  # Ctrl+G
 
 xontrib load coreutils
 xontrib load pyenv
 xontrib load nodenv
 xontrib load goenv
 xontrib load prompt_starship
-
