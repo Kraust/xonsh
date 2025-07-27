@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+
 $PATH.append("~/.local/xonsh-env/bin/")
 $PATH.append("~/.cargo/bin")
 $PATH.append("~/bin")
@@ -8,7 +11,7 @@ $PATH.append("~/.nodenv/bin")
 
 $XONSH_HISTORY_BACKEND = 'sqlite'
 $STARSHIP_CONFIG = '~/.config/starship/starship.toml'
-$GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
+# $GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
 
 xontrib load -s sh jump_to_dir pipeliner whole_word_jumping dalias;
 $PROMPT = $PROMPT.replace('{prompt_end}', '\n{prompt_end}')
@@ -20,8 +23,22 @@ XSH.env['fzf_ssh_binding'] = "c-s"  # Ctrl+S
 XSH.env['fzf_file_binding'] = "c-t"  # Ctrl+T
 XSH.env['fzf_dir_binding'] = "c-g"  # Ctrl+G
 
+# xpip install xontrib-prompt-starship
+# xpip install xontrib-fzf-completions
+# xpip install xontrib-langenv
 xontrib load coreutils
 xontrib load pyenv
 xontrib load nodenv
 xontrib load goenv
 xontrib load prompt_starship
+
+aliases['ls'] = 'eza'
+aliases['find'] = 'fd'
+
+if os.name == 'nt':
+	$PATH.append(r'C:\Program Files\Git\usr\bin')
+
+xonsh_env = Path(Path.home() / Path("work/scripts/xonsh.xsh"))
+if xonsh_env.exists():
+	source f"{xonsh_env}"
+
