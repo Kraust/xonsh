@@ -8,10 +8,28 @@ $PATH.append("~/.config/bin")
 $PATH.append("~/.pyenv/bin")
 $PATH.append("~/.goenv/bin")
 $PATH.append("~/.nodenv/bin")
+$PATH.append("~/.rbenv/bin")
 
 $XONSH_HISTORY_BACKEND = 'sqlite'
 $STARSHIP_CONFIG = '~/.config/starship/starship.toml'
 # $GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
+
+if not Path(f"{$HOME}/.goenv/bin").exists():
+    git clone https://github.com/go-nv/goenv.git ~/.goenv
+    pip install xontrib-langenv
+
+if not Path(f"{$HOME}/.pyenv/bin").exists():
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    pip install xontrib-langenv
+
+if not Path(f"{$HOME}/.nodenv/bin").exists():
+    git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+    pip install xontrib-langenv
+
+# Manually run git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+if not Path(f"{$HOME}/.rbenv/bin").exists():
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    pip install xontrib-langenv
 
 xontrib load -s sh jump_to_dir pipeliner whole_word_jumping dalias;
 $PROMPT = $PROMPT.replace('{prompt_end}', '\n{prompt_end}')
@@ -30,6 +48,7 @@ xontrib load coreutils
 xontrib load pyenv
 xontrib load nodenv
 xontrib load goenv
+xontrib load rbenv
 xontrib load prompt_starship
 
 aliases['ls'] = 'eza'
