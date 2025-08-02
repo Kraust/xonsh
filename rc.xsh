@@ -54,10 +54,12 @@ xontrib load coreutils
 xontrib load prompt_starship
 
 if os.name == 'nt':
-    # NOTE: Findutils is not packaged yet.
-    # https://uutils.github.io/
-    winget install coreutils
-    winget install GnuWin32.FindUtils
+    which grep
+    if $? != 0:
+        # NOTE: Findutils is not packaged yet.
+        # https://uutils.github.io/
+        winget install coreutils
+        winget install GnuWin32.FindUtils
 
 if os.name == 'nt':
 	$PATH.append(r'C:\Program Files\Git\usr\bin')
