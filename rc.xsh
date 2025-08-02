@@ -32,6 +32,11 @@ if os.name != "nt":
         git clone https://github.com/rbenv/rbenv.git ~/.rbenv
         pip install xontrib-langenv
 
+        xontrib load pyenv
+        xontrib load nodenv
+        xontrib load goenv
+        xontrib load rbenv
+
 xontrib load -s sh jump_to_dir pipeliner whole_word_jumping dalias;
 $PROMPT = $PROMPT.replace('{prompt_end}', '\n{prompt_end}')
 
@@ -46,10 +51,6 @@ XSH.env['fzf_dir_binding'] = "c-g"  # Ctrl+G
 # xpip install xontrib-fzf-completions
 # xpip install xontrib-langenv
 xontrib load coreutils
-xontrib load pyenv
-xontrib load nodenv
-xontrib load goenv
-xontrib load rbenv
 xontrib load prompt_starship
 
 aliases['ls'] = 'eza'
