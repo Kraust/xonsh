@@ -14,7 +14,7 @@ $XONSH_HISTORY_BACKEND = 'sqlite'
 $STARSHIP_CONFIG = '~/.config/starship/starship.toml'
 # $GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
 
-if os.name == "nt":
+if os.name != "nt":
     if not Path(Path.home() / ".goenv/bin").exists():
         git clone https://github.com/go-nv/goenv.git ~/.goenv
         pip install xontrib-langenv
