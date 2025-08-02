@@ -53,8 +53,11 @@ XSH.env['fzf_dir_binding'] = "c-g"  # Ctrl+G
 xontrib load coreutils
 xontrib load prompt_starship
 
-aliases['ls'] = 'eza'
-aliases['find'] = 'fd'
+if os.name == 'nt':
+    # NOTE: Findutils is not packaged yet.
+    # https://uutils.github.io/
+    winget install coreutils
+    winget install GnuWin32.FindUtils
 
 if os.name == 'nt':
 	$PATH.append(r'C:\Program Files\Git\usr\bin')
