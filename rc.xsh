@@ -1,4 +1,5 @@
 import os
+import shutil
 from pathlib import Path
 
 $PATH.append("~/.local/xonsh-env/bin/")
@@ -53,13 +54,11 @@ XSH.env['fzf_dir_binding'] = "c-g"  # Ctrl+G
 xontrib load coreutils
 xontrib load prompt_starship
 
-if os.name == 'nt':
-    which grep
-    if $? != 0:
-        # NOTE: Findutils is not packaged yet.
-        # https://uutils.github.io/
-        winget install coreutils
-        winget install GnuWin32.FindUtils
+if shutil.which("grep") == "" and os.name == 'nt':
+    # NOTE: Findutils is not packaged yet.
+    # https://uutils.github.io/
+    winget install coreutils
+    winget install GnuWin32.FindUtils
 
 if os.name == 'nt':
 	$PATH.append(r'C:\Program Files\Git\usr\bin')
