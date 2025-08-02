@@ -14,20 +14,20 @@ $XONSH_HISTORY_BACKEND = 'sqlite'
 $STARSHIP_CONFIG = '~/.config/starship/starship.toml'
 # $GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
 
-if not Path(f"{$HOME}/.goenv/bin").exists():
+if not Path(Path.home() / ".goenv/bin").exists():
     git clone https://github.com/go-nv/goenv.git ~/.goenv
     pip install xontrib-langenv
 
-if not Path(f"{$HOME}/.pyenv/bin").exists():
+if not Path(Path.home() / ".pyenv/bin").exists():
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     pip install xontrib-langenv
 
-if not Path(f"{$HOME}/.nodenv/bin").exists():
+if not Path(Path.home() / ".nodenv/bin").exists():
     git clone https://github.com/nodenv/nodenv.git ~/.nodenv
     pip install xontrib-langenv
 
 # Manually run git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-if not Path(f"{$HOME}/.rbenv/bin").exists():
+if not Path(Path.home() / ".rbenv/bin").exists():
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
     pip install xontrib-langenv
 
