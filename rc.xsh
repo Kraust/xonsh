@@ -33,10 +33,10 @@ if os.name != "nt":
         git clone https://github.com/rbenv/rbenv.git ~/.rbenv
         pip install xontrib-langenv
 
-        xontrib load pyenv
-        xontrib load nodenv
-        xontrib load goenv
-        xontrib load rbenv
+    xontrib load pyenv
+    xontrib load nodenv
+    xontrib load goenv
+    xontrib load rbenv
 
 xontrib load -s sh jump_to_dir pipeliner whole_word_jumping dalias;
 $PROMPT = $PROMPT.replace('{prompt_end}', '\n{prompt_end}')
