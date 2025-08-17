@@ -13,7 +13,7 @@ $PATH.append("~/.rbenv/bin")
 
 $XONSH_HISTORY_BACKEND = 'sqlite'
 $STARSHIP_CONFIG = '~/.config/starship/starship.toml'
-# $GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
+$GIT_CONFIG_GLOBAL = f"{$HOME}/.config/gitconfig/gitconfig"
 
 if os.name != "nt":
     if not Path(Path.home() / ".goenv/bin").exists():
@@ -67,3 +67,4 @@ xonsh_env = Path(Path.home() / Path("work/scripts/xonsh.xsh"))
 if xonsh_env.exists():
 	source f"{xonsh_env}"
 
+aliases["docker"] = "podman"
