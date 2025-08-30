@@ -8,10 +8,6 @@ import subprocess
 import sys
 import typing
 
-import xonsh.dirstack
-import xonsh.environ
-
-
 $PATH.append("~/.local/xonsh-env/bin/")
 $PATH.append("~/.cargo/bin")
 $PATH.append("~/bin")
